@@ -1,7 +1,4 @@
 from app import app, db
-from app.routes.main_routes import main  # Importa desde main_routes
-from app.models.user import User
-
 
 
 if __name__ == '__main__':

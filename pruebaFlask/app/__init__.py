@@ -1,12 +1,22 @@
+# Importar librerias
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from app.routes.main_routes import main 
+from app.routes.views import views
+from app.routes.auth import auth
 import config
 
+# Crear aplicacion
 app = Flask(__name__)
-app.config.from_object(config)
+
+# Crear bd
 db = SQLAlchemy(app)
 
-from app.routes.main_routes import main  # Importa desde main_routes
-app.register_blueprint(main)
+# Obtener variables de entorno
+app.config.from_object(config)
 
-# Más configuración o definiciones aquí
+
+# Registro de rutas
+app.register_blueprint(main)
+app.register_blueprint(auth, url_prefix='/auth')
+app.register_blueprint(views, url_prefix='/views')
