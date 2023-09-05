@@ -1,8 +1,0 @@
-conda deactivate
-
-cd .\Sosa\pruebaFlask
-
-pruebaFlask1\Scripts\activate
-
-python run.py db create
-
