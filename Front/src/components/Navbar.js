@@ -1,12 +1,12 @@
 import React from "react";
 import { FiMenu } from "react-icons/fi";
 import { HiOutlineUser } from "react-icons/hi";
-import logo from "../assets/house.png";
+import logo from "../assets/azulSinFondo.png";
 import NavBtn from "./NavBtn";
 
 const Navbar = () => {
   const buttons = [
-    { title: "Buy", underline: "-bottom-[1.3rem]   bg-[#e20112]" },
+    { title: "Buy", underline: "-bottom-[1.3rem]" },
     { title: "Sell", underline: "-bottom-[1.3rem]" },
     { title: "Rent", underline: "-bottom-[1.3rem]" },
     { title: "Mortgage", underline: "-bottom-[1.3rem]" },
@@ -47,14 +47,14 @@ const Navbar = () => {
         </div>
         {/* Right Authentification */}
         <div className="flex h-full items-center  lg:hidden">
-          <div className="w-10 h-10 bg-[#e20112] rounded-full text-white flex items-center justify-center ">
+          <div className="w-10 h-10 bg-[#4bb6b7] rounded-full text-white flex items-center justify-center ">
             <HiOutlineUser className="text-[28px] " />
           </div>
         </div>
 
         <div className="hidden lg:flex   items-center pl-6 text-[15px]">
           <button>Log in</button>
-          <div className="   bg-[#e20112] py-[6px] text-white rounded-full px-4 ml-6 flex items-center ">
+          <div className="   bg-[#4bb6b7] py-[6px] text-white rounded-full px-4 ml-6 flex items-center ">
             <button>Sign up</button>
           </div>
         </div>

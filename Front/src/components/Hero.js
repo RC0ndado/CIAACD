@@ -1,16 +1,13 @@
 import React from "react";
-import houses from "../assets/city.jpg";
+import houses from "../assets/wp11143511.jpg";
 import HeroBtn from "./HeroBtn";
 import { RiSearchLine } from "react-icons/ri";
 
 const Hero = () => {
   const buttons = [
-    { title: "BUY", underline: "bg-[#e20112]" },
-    { title: "RENT" },
-    { title: "SELL" },
-    { title: "PRE-APPROVAL" },
-    { title: "JUST SOLD", css: "hidden sm:flex" },
-    { title: "HOME VALUE", css: "hidden sm:flex" },
+    { title: "COMPRA", },
+    { title: "VENDIDAS" },
+    { title: "AVALUO" },
   ];
   return (
     <div className="h-[25rem] sm:h-[27rem] flex bg-red-400 overflow-hidden">
@@ -18,7 +15,7 @@ const Hero = () => {
         <div className="bg-gray-900/10 absolute z-10 w-full h-[25rem]  "></div>
         <img
           src={houses}
-          className="object-cover w-full  h-[25rem] sm:h-[27rem] "
+          className="object-cover w-full  h-[27rem] sm:h-[27rem] "
         />
       </div>
       <div className="relative z-30 flex flex-col items-center w-full pt-12">
@@ -46,7 +43,7 @@ const Hero = () => {
             className="bg-white py-4  w-[28rem] sm:w-[37rem] rounded-full pl-5 placeholder:text-gray-500 placeholder:text-[20px] outline-0 "
             placeholder="Adress, School, City, Zip or Neighborhood"
           />
-          <div className="absolute w-[2.7rem] h-[2.7rem] rounded-full  bg-[#e20112] top-[0.4rem] right-1 flex items-center justify-center">
+          <div className="absolute w-[2.7rem] h-[2.7rem] rounded-full  bg-[#4bb6b7] top-[0.4rem] right-1 flex items-center justify-center">
             <RiSearchLine className="text-white text-[22px]" />
           </div>
         </div>
