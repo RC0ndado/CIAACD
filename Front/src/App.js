@@ -1,21 +1,19 @@
-import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
-import NewListings from "./components/NewListings";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Home from "./pages/home";
+import Login from "./pages/login";
+import UserInfo from "./pages/userInfo";
 
 function App() {
   return (
-    <div className="  ">
-      {/* Navbar */}
-      <Navbar />
-      {/* Hero */}
-      <Hero />
+    <div className="">
+      <Routes>
+        <Route path="/" element={<Home />} />
 
-      {/* New Listings */}
-      <NewListings />
-      {/* Take Action */}
-      {/* Stickers */}
-      {/* Related */}
-      {/* Footer */}
+        <Route path="/iniciosesion" element={<Login />} />
+        
+        <Route path="/perfil" element={<UserInfo />}/>
+      
+      </Routes>
     </div>
   );
 }
