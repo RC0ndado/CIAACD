@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Button} from '@chakra-ui/react'
 
 import Data from './Data'
 import Profile from './Profile'
@@ -18,6 +18,9 @@ function Sidebar() {
     >
       <Profile />
       <Data />
+      <Box mt={5} py={5} px={8} borderTopWidth={1} borderColor="brand.light">
+      <Button>Regresar</Button>
+      </Box>
     </Box>
   )
 }

@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import NewListings from "../components/NewListings";
@@ -12,10 +13,8 @@ function Home() {
 
       {/* New Listings */}
       <NewListings />
-      {/* Take Action */}
-      {/* Stickers */}
-      {/* Related */}
       {/* Footer */}
+      <Footer />
     </div>
   );
 }

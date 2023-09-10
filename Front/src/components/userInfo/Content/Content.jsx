@@ -44,17 +44,17 @@ const Content = () => {
         <TabPanels px={3} mt={5}>
           <TabPanel>
             <AccountSettings />
+            <Actions />
           </TabPanel>
           <TabPanel>
             <CompanySettings />
           </TabPanel>
           <TabPanel>
             <Notifications />
+            <Actions />
           </TabPanel>
         </TabPanels>
       </Tabs>
-
-      <Actions />
     </Box>
   )
 }
