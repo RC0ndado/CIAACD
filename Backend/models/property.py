@@ -1,7 +1,7 @@
 from marshmallow import Schema, fields
 
 class PropertySchema(Schema):
-    # Campos numéricos
+    # Numeric properties
     OverallQuall = fields.Float(required=True)
     YearBuilt = fields.Float(required=True)
     YearRemodAdd = fields.Float(required=True)
@@ -20,7 +20,7 @@ class PropertySchema(Schema):
     WoodDeckSF = fields.Float(required=True)
     OpenPorchSF = fields.Float(required=True)
 
-    # Campos categóricos
+    # Categorized fields
     MSZoning = fields.Str(required=True)
     LotConfig = fields.Str(required=True)
     Neighborhood = fields.Str(required=True)
