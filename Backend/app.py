@@ -2,9 +2,14 @@ from flask import Flask, jsonify, request
 from flask_pymongo import PyMongo
 from models.property import PropertySchema
 from models.user import UserSchema
+import os
+from dotenv import load_dotenv
+
+# Carga las variables de entorno desde el archivo .env
+load_dotenv()
 
 app = Flask(__name__)
-app.config["MONGO_URI"] = "mongodb+srv://mugiwara:LXkVWmf5p2K1FaUD@mugiwara.eaxwa3x.mongodb.net/mugiwara"
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")  # dotenv
 mongo = PyMongo(app)
 
 property_schema = PropertySchema()
