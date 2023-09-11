@@ -5,7 +5,7 @@ from models.user import UserSchema
 import os
 from dotenv import load_dotenv
 
-# Carga las variables de entorno desde el archivo .env
+# Load the environment variables from the .env file
 load_dotenv()
 
 app = Flask(__name__)
