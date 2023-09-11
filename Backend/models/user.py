@@ -2,9 +2,9 @@
 from marshmallow import Schema, fields, validate
 
 class UserSchema(Schema):
-    _id = fields.Str()  # Opcional si deseas definir tu propio ID
+    _id = fields.Str()
     name = fields.Str(required=True)
-    lastname = fields.Str(required=True)  # Nuevo campo lastname
+    lastname = fields.Str(required=True)
     email = fields.Email(required=True)
     password = fields.Str(required=True)
     phone = fields.Str(validate=validate.Length(min=10, max=15))
