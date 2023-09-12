@@ -1,3 +1,0 @@
-SECRET_KEY = 'Prueba1'
-SQLALCHEMY_DATABASE_URI = 'mysql://root:A01745312@localhost/pruebaFlask'
-SQLALCHEMY_TRACK_MODIFICATIONS = False
