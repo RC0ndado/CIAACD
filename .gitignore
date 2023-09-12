@@ -183,3 +183,4 @@ vcs.xml
 # Zeppelin ignored files
 /ZeppelinRemoteNotebooks/
 pruebaFlask/iaflask
+proyecto/backend/iaflask
