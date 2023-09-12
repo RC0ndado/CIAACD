@@ -4,12 +4,17 @@ from models.property import PropertySchema
 from models.user import UserSchema
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson import json_util
+import os
+from dotenv import load_dotenv
+
+# Load the environment variables from the .env file
+load_dotenv()
 
 # SERVIDOR WEB
 app = Flask(__name__)
 
 # Conectar a la base de datos
-app.config["MONGO_URI"] = "mongodb+srv://mugiwara:LXkVWmf5p2K1FaUD@mugiwara.eaxwa3x.mongodb.net/mugiwara"
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")  # dotenv
 mongo = PyMongo(app)
 
 # ************* Modelos BD ***************
