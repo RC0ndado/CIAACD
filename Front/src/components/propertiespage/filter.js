@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
+import '../../styles/filter.css'
 
 function Filter(props) {
   useEffect(() => {
     // props.populateAction();
-    console.log(props)
   }, []);
 
   const cities = () => {
