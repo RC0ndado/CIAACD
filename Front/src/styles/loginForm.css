@@ -1,0 +1,13 @@
+/* formStyles.css */
+
+p {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+    text-shadow: 0 0 10px rgba(16, 64, 74, 0.5);
+  }
+  
+  /* Estilos específicos del formulario aquí */
+  

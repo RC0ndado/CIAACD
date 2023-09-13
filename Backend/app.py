@@ -10,14 +10,14 @@ from dotenv import load_dotenv
 # Load the environment variables from the .env file
 load_dotenv()
 
-# SERVIDOR WEB
+# WEBSITE
 app = Flask(__name__)
 
-# Conectar a la base de datos
+# Connect to the database
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")  # dotenv
 mongo = PyMongo(app)
 
-# ************* Modelos BD ***************
+# ************* DB MODELS ***************
 
 property_schema = PropertySchema()
 user_schema = UserSchema()
@@ -30,13 +30,13 @@ customer = Blueprint('customer', __name__)
 sales = Blueprint('sales', __name__)
 house = Blueprint('property', __name__)
 
-# ***************** Rutas ********************
+# ***************** Routes ********************
 
 # ------------ App ----------------
 
 @app.route('/home', methods=['GET'])
 def home():
-    return 'hola'
+    return 'hello'
 
 @app.route('/onSale')
 def onSale():
@@ -72,7 +72,7 @@ def sign_up():
                 'password': hashpass,
                 'phone': phone,
                 'user_type': user_type
-             }
+            }
         )
         response = {
             'name': name,
@@ -86,12 +86,29 @@ def sign_up():
     else:
         return jsonify({'message': 'Incomplete data'})
 
-@auth.route('/login', methods=['GET'])
+@auth.route('/login', methods=['POST'])
 def login():
-    user_collection = mongo.db.user 
-    user = user_collection.find()
-    response = json_util.dumps(user)
-    return Response(response, mimetype='application/json')
+    email = request.json['email']
+    password = request.json['password']
+
+    # Consult the database for the user
+    user_collection = mongo.db.user
+    user = user_collection.find_one({"email": email})
+
+    # If the password is incorrect, return an error message
+    if not user or not check_password_hash(user['password'], password):
+        return jsonify({'message': 'Invalid email or password'}), 401
+
+    # If the credentials are correct, return a new JWT token
+    user_data = {
+        "name": user["name"],
+        "lastname": user["lastname"],
+        "email": user["email"],
+        "phone": user["phone"],
+        "user_type": user["user_type"]
+    }
+    return jsonify(user_data)
+
 
 # ------- Seller ---------
 
@@ -165,7 +182,7 @@ def add_user_endpoint():
     return jsonify({"message": f"User added successfully: {result.inserted_id}"}), 201
 
 
-# Inicializar las rutas
+# Inicialize the routes
 app.register_blueprint(auth, url_prefix='/auth')
 app.register_blueprint(seller, url_prefix='/seller')
 app.register_blueprint(customer, url_prefix='/customer')
