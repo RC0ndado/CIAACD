@@ -1,8 +1,71 @@
 import React, { useState } from "react";
 import "../styles/loginPage.css";
+import { createUser, loginUser } from "../services/app";
+
 
 function Login() {
   const [isRegisterActive, setIsRegisterActive] = useState(false);
+
+  const [registrationData, setRegistrationData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+  });
+  
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setRegistrationData({
+      ...registrationData,
+      [name]: value,
+    });
+  };
+
+  const handleLoginChange = (event) => {
+    const { name, value } = event.target;
+    setLoginData({
+      ...loginData,
+      [name]: value,
+    });
+  };
+
+  const handleRegistrationSubmit = async (event) => {
+    event.preventDefault();
+  
+    try {
+      const response = await createUser(registrationData);
+        console.log(response);
+      setRegistrationData({
+        name: "",
+        email: "",
+        password: "",
+      });
+    } catch (error) {
+      console.error("Error during registration:", error);
+    }
+  };
+  
+  const handleLoginSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await loginUser(loginData);
+
+      console.log("User login response:", response);
+
+      setLoginData({
+        email: "",
+        password: "",
+      });
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
+  };
+
 
   const handleRegisterClick = () => {
     setIsRegisterActive(true);
@@ -18,54 +81,25 @@ function Login() {
         className={`container ${isRegisterActive ? "right-panel-active" : ""}`}
       >
         <div className="form-container register-container">
-          <form action="#">
-            <h1>Register here.</h1>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Register</button>
-            <span>or use your account</span>
-            <div class="social-container">
-              <a href="#" class="social">
-                <i class="lni lni-facebook-fill"></i>
-              </a>
-              <a href="#" class="social">
-                <i class="lni lni-google"></i>
-              </a>
-              <a href="#" class="social">
-                <i class="lni lni-linkedin-original"></i>
-              </a>
-            </div>
+          <form action="#" onSubmit={handleRegistrationSubmit}>
+            <h1>Regístrate.</h1>
+            <input type="text" placeholder="Nombre" name="name" value={registrationData.name} onChange={handleInputChange}/>
+            <input type="email" placeholder="Correo" name="email" value={registrationData.email} onChange={handleInputChange}/>
+            <input type="password" placeholder="Contraseña" name="password" value={registrationData.password} onChange={handleInputChange}/>
+            <button type="submit">Registrarme</button>
           </form>
         </div>
 
         <div className="form-container login-container">
-          <form action="#">
-            <h1>Login hire.</h1>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <div class="content">
-              <div class="checkbox">
-                <input type="checkbox" name="checkbox" id="checkbox" />
-                <label>Remember me</label>
-              </div>
-              <div class="pass-link">
-                <a href="#">Forgot password?</a>
-              </div>
-            </div>
-            <button>Login</button>
-            <span>or use your account</span>
-            <div class="social-container">
-              <a href="#" class="social">
-                <i class="lni lni-facebook-fill"></i>
-              </a>
-              <a href="#" class="social">
-                <i class="lni lni-google"></i>
-              </a>
-              <a href="#" class="social">
-                <i class="lni lni-linkedin-original"></i>
-              </a>
-            </div>
+          <form action="#" onSubmit={handleLoginSubmit}>
+            <h1>Iniciar Sesión</h1>
+            <input type="email" placeholder="Correo" name="email"
+              value={loginData.email}
+              onChange={handleLoginChange}/>
+            <input type="password" placeholder="Contraseña" name="password"
+              value={loginData.password}
+              onChange={handleLoginChange}/>
+            <button>Iniciar Sesión</button>
           </form>
         </div>
 
@@ -77,11 +111,11 @@ function Login() {
               }`}
             >
               <h1 className="title">
-                Hello <br /> friends
+                Bienvenido <br /> 
               </h1>
-              <p>if you have an account, login here and have fun</p>
+              <p>Si tienes una cuenta, <br/>inicia sesión</p>
               <button className="ghost" id="login" onClick={handleLoginClick}>
-                Login
+                Iniciar Sesión
                 <i className="lni lni-arrow-left login"></i>
               </button>
             </div>
@@ -91,18 +125,18 @@ function Login() {
               }`}
             >
               <h1 className="title">
-                Start your <br /> journey now
+                ¡Empieza <br /> ahora!
               </h1>
               <p>
-                if you don't have an account yet, join us and start your
-                journey.
+                Si todavía no tienes una cuenta, 
+                <br/>regístrate aquí
               </p>
               <button
                 className="ghost"
                 id="register"
                 onClick={handleRegisterClick}
               >
-                Register
+                Regístrate
                 <i className="lni lni-arrow-right register"></i>
               </button>
             </div>
@@ -112,5 +146,4 @@ function Login() {
     </div>
   );
 }
-
 export default Login;

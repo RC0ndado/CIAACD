@@ -6,12 +6,14 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from bson import json_util
 import os
 from dotenv import load_dotenv
+from flask_cors import CORS
 
 # Load the environment variables from the .env file
 load_dotenv()
 
 # WEBSITE
 app = Flask(__name__)
+CORS(app)
 
 # Connect to the database
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")  # dotenv
@@ -27,24 +29,11 @@ user_schema = UserSchema()
 auth =  Blueprint('auth', __name__)
 seller = Blueprint('seller', __name__)
 customer = Blueprint('customer', __name__)
-sales = Blueprint('sales', __name__)
 house = Blueprint('property', __name__)
 
 # ***************** Routes ********************
 
 # ------------ App ----------------
-
-@app.route('/home', methods=['GET'])
-def home():
-    return 'hello'
-
-@app.route('/onSale')
-def onSale():
-    return 'onSale'
-
-@app.route('/myHome')
-def myHome():
-    return 'myHome'
 
 @app.route('/homeValue')
 def homeValue():
@@ -55,36 +44,35 @@ def homeValue():
 @auth.route('/signUp', methods=['POST'])
 def sign_up():
     name = request.json['name']
-    lastname = request.json['lastname']
     email = request.json['email']
     password = request.json['password']
-    phone = request.json['phone']
-    user_type = request.json['user_type']
     
-    if name and lastname and email and password:
-        hashpass  = generate_password_hash(password)
+    if name and email and password:
+        hashpass = generate_password_hash(password)
         user_collection = mongo.db.user  # Get the user collection
         user_collection.insert_one(
             {
                 'name': name,
-                'lastname': lastname,
                 'email': email,
-                'password': hashpass,
-                'phone': phone,
-                'user_type': user_type
+                'password': hashpass
             }
         )
-        response = {
+        user = {
             'name': name,
-            'lastname': lastname,
             'email': email,
-            'password': hashpass,
-            'phone': phone,
-            'user_type': user_type
+            'password': hashpass
         }
-        return jsonify(response)
+        response = jsonify({
+            'status': 'Success',
+            'data': {
+                'user': user,
+            }
+        })
+        response.status_code = 200
+        return response
     else:
-        return jsonify({'message': 'Incomplete data'})
+        return jsonify({'message': 'Incomplete data'}), 400
+
 
 @auth.route('/login', methods=['POST'])
 def login():
@@ -102,10 +90,7 @@ def login():
     # If the credentials are correct, return a new JWT token
     user_data = {
         "name": user["name"],
-        "lastname": user["lastname"],
-        "email": user["email"],
-        "phone": user["phone"],
-        "user_type": user["user_type"]
+        "email": user["email"]
     }
     return jsonify(user_data)
 
@@ -119,17 +104,12 @@ def oneSeller():
     response = json_util.dumps(user)
     return Response(response, mimetype='application/json')
 
-# ------- Consumer --------
+# ------- Customer --------
 
 @customer.route('/<id>', methods=['GET'])
-def oneConsumer():
+def oneCustomer():
     return
 
-# ------- Sales ----------
-
-@sales.route('/<id>')
-def oneSale():
-    return
 
 # ---------- House ---------
 
@@ -186,7 +166,6 @@ def add_user_endpoint():
 app.register_blueprint(auth, url_prefix='/auth')
 app.register_blueprint(seller, url_prefix='/seller')
 app.register_blueprint(customer, url_prefix='/customer')
-app.register_blueprint(sales, url_prefix='/sales')
 app.register_blueprint(house, url_prefix='/property')
 
 
