@@ -7,7 +7,8 @@ function Filter(props) {
   }, []);
 
   const cities = () => {
-    const { cities } = props.global.populateFormsData;
+    const citiesData = props.global.populateFormsData || {};
+  const { cities } = citiesData;
     if (cities !== undefined) {
       return cities.map((city) => (
         <option key={city} value={city}>
@@ -19,7 +20,8 @@ function Filter(props) {
   };
 
   const types = () => {
-    const { types } = props.global.populateFormsData;
+    const typesData = props.global.populateFormsData || {};
+  const { types } = typesData;
     if (types !== undefined) {
       return types.map((type) => (
         <option key={type} value={type}>
@@ -31,7 +33,8 @@ function Filter(props) {
   };
 
   const beds = () => {
-    const { beds } = props.global.populateFormsData;
+    const bedsData = props.global.populateFormsData || {};
+  const { beds } = bedsData;
     if (beds !== undefined) {
       return beds.map((bed) => (
         <option key={bed} value={bed}>
@@ -164,4 +167,3 @@ function Filter(props) {
 }
 
 export default Filter;
-

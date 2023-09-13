@@ -4,7 +4,7 @@ function Listing(props) {
   const { global, property, handleOnChange, handleOnChangeView } = props;
 
   const loopListing = () => {
-    if (property === undefined || property.length === 0) {
+    if (!property || property.length === 0) {
       return "Sorry, that search doesn't match any listing";
     }
 
@@ -59,7 +59,7 @@ function Listing(props) {
       </section>
 
       <section className="listing-sort">
-        <span className="results">{global.filterData.length} results found</span>
+        <span className="results">{(global.filterData ? global.filterData.length : 0)} results found</span>
         <div className="listing-sortOptions">
           <select name="sortBy" className="sortBy" onChange={handleOnChange}>
             <option value="price-dsc">Lowest Price</option>
