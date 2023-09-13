@@ -8,11 +8,6 @@ import { useState, useEffect } from 'react';
 
 
 function UserInfo() {
-  useEffect(() => {
-    console.log("Working")
-    //populateForms();
-    //console.log(populateForms)
-  });
 
 
   return (

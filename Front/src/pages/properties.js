@@ -31,9 +31,7 @@ function Index() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("Working2")
     populateForms();
-    console.log(populateFormsData)
   });
 
   const handleOnChange = (event) => {
