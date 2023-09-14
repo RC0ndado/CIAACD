@@ -55,6 +55,28 @@ auth =  Blueprint('auth', __name__)
 
 # ***************** Routes ********************
 
+# -------- App ------------
+
+@app.route("/predict_price", methods=["POST"])
+def predict_price():
+    # Obtener los datos del formulario
+    data = request.json
+
+    # Preprocesar los datos
+    training_columns = (
+        xgb_model.get_booster().feature_names
+    )  # obtener las columnas del modelo entrenado
+    processed_data = preprocess_input(data, training_columns)
+
+    # Hacer la predicción
+    prediction = xgb_model.predict(processed_data)
+
+    # Convertir la predicción a un tipo nativo de Python
+    estimated_price = float(prediction[0])
+
+    # Devolver la predicción como respuesta
+    return jsonify({"estimated_price": estimated_price})
+
 # -------- Auth ------------
 
 @auth.route('/signUp', methods=['POST'])
