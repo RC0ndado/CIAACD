@@ -53,7 +53,7 @@ function Listing(props) {
   return (
     <div className="listings">
       <section className="listing-heading">
-        <h2 className="card-title">Short stay</h2>
+        <h2>Short stay</h2>
         <input type="text" name="search" placeholder="search..." onChange={handleOnChange} />
         <hr />
       </section>

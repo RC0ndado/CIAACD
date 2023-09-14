@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Filter from '../components/propertiespage/filter';
-import Listing from './listing';
+import Listing from './listing'
 import data from '../components/data.json';
 import '../styles/filter.css';
 import '../styles/listing.css';
