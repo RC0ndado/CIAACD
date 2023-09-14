@@ -1,0 +1,209 @@
+/* src/Formulario.css */
+.questions .card {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex; /* Cambia el modo de visualización a flex */
+    flex-direction: column; /* Establece la dirección de flex a columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+  }
+  
+.questions .card-content {
+    text-align: center;
+    width: 100%; /* Asegura que el contenido ocupe todo el ancho */
+  }
+  
+.formulario .progress-bar {
+    margin-top: 20px;
+    height: 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+.formulario .progress {
+    height: 100%;
+    width: 0;
+    background-color: #007bff;
+    border-radius: 4px;
+    transition: width 0.5s ease; /* Aumenta la duración de la animación */
+  }
+  
+  .question-marker {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  /* Agrega transiciones de animación */
+  .fade-enter {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .fade-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .fade-exit {
+    opacity: 1;
+  }
+  
+  .fade-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  /* src/Formulario.css */
+.summary {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .summary h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .summary ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .summary li {
+    margin: 10px 0;
+    font-weight: bold;
+  }
+  
+  /* Estilo para el botón de enviar respuestas */
+  .summary button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+  .questions button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .questions button:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  /* src/App.css */
+.fade-enter {
+    opacity: 0;
+  }
+  
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+  
+  .form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .question-container {
+    text-align: center;
+  }
+  
+.questions input {
+  
+      width: 100%; /* O un porcentaje adecuado */
+      max-width: 300px; /* Ancho máximo */
+    
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+/* En tu hoja de estilos CSS */
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px; /* Espacio entre las opciones */
+}
+
+.option {
+  display: flex;
+  align-items: center;
+}
+
+.option label {
+  margin: 0; /* Elimina cualquier margen */
+  display: flex;
+  align-items: center;
+}
+
+.option input[type="radio"] {
+  margin-right: 8px; /* Espacio entre el radio button y el texto */
+}
+
+/* Estilos adicionales según sea necesario */
+  /* Agrega estilos para las opciones */
+
+.select-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .option-label {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .option-label:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Estilos para el botón de enviar respuestas */
+  .submit-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+/* formulario.css */
+.container-full {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
