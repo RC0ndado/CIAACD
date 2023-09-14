@@ -15,7 +15,7 @@ const CardComponent = ({ photo, price }) => {
       <div className="mt-2 ml-4 text-[15px]">
         <div className="flex items-center">
           <div className="w-2 h-2 bg-green-600 rounded-full mr-1"></div>
-          <p>Single-Family Home</p>
+          <p>Casa habitación familiar</p>
         </div>
 
         <p className="text-[22px] font-bold">{price}</p>

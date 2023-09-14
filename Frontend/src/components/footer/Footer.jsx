@@ -9,10 +9,10 @@ const Footer = () => {
         <div className='container'>
           <div className='send flex'>
             <div className='text'>
-              <h1>Do You Have Questions ?</h1>
-              <p>We'll help you to grow your career and growth.</p>
+              <h1>¿Tienes preguntas acerca de Minka?</h1>
+              <p>Te ayudaremos a impulsar tus propiedades y su venta. </p>
             </div>
-            <button className='btn5'>Contact Us Today</button>
+            <button className='btn5'>Contáctanos</button>
           </div>
         </div>
       </section>
@@ -22,12 +22,12 @@ const Footer = () => {
           <div className='box'>
             <div className='logo'>
               <img src='../images/logo-light.png' alt='' />
-              <h2>Do You Need Help With Anything?</h2>
-              <p>Receive updates, hot deals, tutorials, discounts sent straignt in your inbox every month</p>
+              <h2>¿Necesitas ayuda con algo?</h2>
+              <p>Recibe actualizaciones, ofertas destacadas, tutoriales y descuentos enviados directamente a tu bandeja de entrada cada mes.</p>
 
               <div className='input flex'>
-                <input type='text' placeholder='Email Address' />
-                <button>Subscribe</button>
+                <input type='text' placeholder='Email' />
+                <button>Subscribirse</button>
               </div>
             </div>
           </div>
@@ -45,7 +45,7 @@ const Footer = () => {
         </div>
       </footer>
       <div className='legal'>
-        <span>© 2023 RentUP. Designd By TaikoTeam</span>
+        <span>© 2023 Minka. Desarrollado por TaikoTeam</span>
       </div>
     </>
   )

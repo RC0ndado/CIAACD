@@ -20,10 +20,10 @@ const Hero = () => {
       </div>
       <div className="relative z-30 flex flex-col items-center w-full pt-12">
         <p className="text-white text-[32px] sm:text-[57px] font-bold">
-          To each their home.
+          Busca la casa de tus sueños
         </p>
         <p className="text-white  pt-2 sm:pt-0  sm:text-[23px]  ">
-          Let's find a home that's perfect for you
+          Nosotros haremos la magia por ti
         </p>
         <ul className="">
           <div className="pt-8 flex space-x-4 sm:space-x-2">
@@ -41,7 +41,7 @@ const Hero = () => {
           <input
             type="search"
             className="bg-white py-4  w-[28rem] sm:w-[37rem] rounded-full pl-5 placeholder:text-gray-500 placeholder:text-[20px] outline-0 "
-            placeholder="Adress, School, City, Zip or Neighborhood"
+            placeholder="Dirección, ciudad, estado o código postal"
           />
           <div className="absolute w-[2.7rem] h-[2.7rem] rounded-full  bg-[#4bb6b7] top-[0.4rem] right-1 flex items-center justify-center">
             <RiSearchLine className="text-white text-[22px]" />

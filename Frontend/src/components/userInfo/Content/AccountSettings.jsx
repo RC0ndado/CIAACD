@@ -24,7 +24,7 @@ function AccountSettings() {
         />
       </FormControl>
       <FormControl id="emailAddress">
-        <FormLabel>Email Address</FormLabel>
+        <FormLabel>Email</FormLabel>
         <Input
           focusBorderColor="brand.blue"
           type="email"

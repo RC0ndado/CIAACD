@@ -22,7 +22,7 @@ function Notifications() {
                 name="last_name"
                 placeholder="Doe"
               />
-              <label htmlFor="email">Email Address</label>
+              <label htmlFor="email">Email</label>
               <input
                 type="text"
                 id="email"

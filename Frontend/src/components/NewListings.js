@@ -20,9 +20,9 @@ const NewListings = () => {
       {/* Title */}
       <div className="mt-10">
         <p className="text-[18.5px] font-medium">
-          New Listings in Spokeane, WA
+          Nuevas propiedades en Spokeane, WA (Los precios que se muestran son en dólares estadounidenses)
         </p>
-        <p className="text-blue-600 text-[15px]">View All 160 New Listings</p>
+        <p className="text-blue-600 text-[15px]">Ver todas las 160 nuevas propiedades</p>
       </div>
       {/* Listings */}
       <div className="flex pt-4 space-x-6 w-full overflow-x-scroll pb-4 mb-20">

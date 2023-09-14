@@ -6,15 +6,13 @@ import NavBtn from "./NavBtn";
 
 const Navbar = () => {
   const buttons = [
-    { title: "Buy", underline: "-bottom-[1.3rem]" },
-    { title: "Sell", underline: "-bottom-[1.3rem]" },
-    { title: "Rent", underline: "-bottom-[1.3rem]" },
-    { title: "Mortgage", underline: "-bottom-[1.3rem]" },
-    { title: "Find Realtors", underline: "-bottom-[1.3rem]" },
+    { title: "Compra", underline: "-bottom-[1.3rem]" },
+    { title: "Venta", underline: "-bottom-[1.3rem]" },
+    { title: "Renta", underline: "-bottom-[1.3rem]" },
     { title: "My Home", underline: "-bottom-[1.3rem]" },
-    { title: "News & Insights", underline: "-bottom-[1.3rem]" },
+    { title: "Propiedades más vistas", underline: "-bottom-[1.3rem]" },
     {
-      title: "Advertise",
+      title: "Aviso de privacidad",
       border: "border p-1 rounded-[0.3rem] border-gray-400",
     },
   ];
@@ -53,9 +51,9 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex   items-center pl-6 text-[15px]">
-          <button>Log in</button>
+          <button>Iniciar sesión</button>
           <div className="   bg-[#4bb6b7] py-[6px] text-white rounded-full px-4 ml-6 flex items-center ">
-            <button>Sign up</button>
+            <button>Registrarse</button>
           </div>
         </div>
       </div>
