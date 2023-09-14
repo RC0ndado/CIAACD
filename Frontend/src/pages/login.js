@@ -1,10 +1,14 @@
+
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import "../styles/loginPage.css";
 import { createUser, loginUser } from "../services/app";
 
-
 function Login() {
-  const [isRegisterActive, setIsRegisterActive] = useState(false);
+  const location = useLocation();
+  const isRegisterActiveFromURL = location.search === "?register=true";
+  const [isRegisterActive, setIsRegisterActive] = useState(isRegisterActiveFromURL);
+
 
   const [registrationData, setRegistrationData] = useState({
     name: "",
@@ -146,4 +150,5 @@ function Login() {
     </div>
   );
 }
+
 export default Login;
