@@ -21,10 +21,9 @@ const CardComponent = ({ photo, price }) => {
         <p className="text-[22px] font-bold">{price}</p>
         <div className="space-x-1">
           <div className="flex">
-            <span className="font-bold pr-1 pl-1">5</span>bed
-            <span className="font-bold pr-1 pl-1">3</span>bath
-            <span className="font-bold pr-1 pl-1">3,747</span>sqft
-            <span className="font-bold pr-1 pl-1">8,655</span>sqft lot
+            <span className="font-bold pr-1 pl-1">3</span>Cuartos
+            <span className="font-bold pr-1 pl-1">2</span>baños
+            <span className="font-bold pr-1 pl-1">220</span> Metros cuadrados
           </div>
           <p>2052 Superior Ct</p>
           <p>Tracy, CA 95304</p>
