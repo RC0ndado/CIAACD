@@ -7,6 +7,31 @@ from bson import json_util
 import os
 from dotenv import load_dotenv
 from flask_cors import CORS
+import joblib
+import pandas as pd
+
+
+def preprocess_input(input_data, training_columns):
+    # Convertir los datos a un DataFrame
+    df = pd.DataFrame([input_data])
+
+    # One-hot encoding
+    df_encoded = pd.get_dummies(df)
+
+    # Asegurarse de que el DataFrame tenga las mismas columnas que los datos de entrenamiento
+    for col in training_columns:
+        if col not in df_encoded.columns:
+            df_encoded[col] = 0  # Añadir columnas faltantes y llenarlas con 0
+    df_encoded = df_encoded[
+        training_columns
+    ]  # Reordenar las columnas y eliminar columnas adicionales
+
+    return df_encoded
+
+
+# Cargar el modelo xgb_model entrenado
+xgb_model = joblib.load("xgb_model.pkl")
+
 
 # Load the environment variables from the .env file
 load_dotenv()
@@ -27,17 +52,30 @@ user_schema = UserSchema()
 # ************* Singleton ****************
 
 auth =  Blueprint('auth', __name__)
-seller = Blueprint('seller', __name__)
-customer = Blueprint('customer', __name__)
-house = Blueprint('property', __name__)
 
 # ***************** Routes ********************
 
-# ------------ App ----------------
+# -------- App ------------
 
-@app.route('/homeValue')
-def homeValue():
-    return 'homeValue'
+@app.route("/predict_price", methods=["POST"])
+def predict_price():
+    # Obtener los datos del formulario
+    data = request.json
+
+    # Preprocesar los datos
+    training_columns = (
+        xgb_model.get_booster().feature_names
+    )  # obtener las columnas del modelo entrenado
+    processed_data = preprocess_input(data, training_columns)
+
+    # Hacer la predicción
+    prediction = xgb_model.predict(processed_data)
+
+    # Convertir la predicción a un tipo nativo de Python
+    estimated_price = float(prediction[0])
+
+    # Devolver la predicción como respuesta
+    return jsonify({"estimated_price": estimated_price})
 
 # -------- Auth ------------
 
@@ -95,29 +133,6 @@ def login():
     return jsonify(user_data)
 
 
-# ------- Seller ---------
-
-@seller.route('/<id>', methods=['GET'])
-def oneSeller():
-    user_collection = mongo.db.user 
-    user = user_collection.find()
-    response = json_util.dumps(user)
-    return Response(response, mimetype='application/json')
-
-# ------- Customer --------
-
-@customer.route('/<id>', methods=['GET'])
-def oneCustomer():
-    return
-
-
-# ---------- House ---------
-
-@house.route('/<id>', methods=['GET'])
-def one_property():
-    return
-
-
 # ------------ Error Handlers -----------
 
 @app.errorhandler(404)
@@ -164,9 +179,6 @@ def add_user_endpoint():
 
 # Inicialize the routes
 app.register_blueprint(auth, url_prefix='/auth')
-app.register_blueprint(seller, url_prefix='/seller')
-app.register_blueprint(customer, url_prefix='/customer')
-app.register_blueprint(house, url_prefix='/property')
 
 
 if __name__ == '__main__':
