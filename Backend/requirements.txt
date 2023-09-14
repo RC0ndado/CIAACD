@@ -1,7 +1,6 @@
 flask
 flask_pymongo
 werkzeug
-bson
 python-dotenv
 flask_cors
 joblib
