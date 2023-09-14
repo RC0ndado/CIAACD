@@ -29,7 +29,6 @@ export async function createUser(user) {
   }
 
   export async function respuestasModelo(answers){
-    //console.log("Estos es answers[0]", answers.answer2);
     const response = await fetch(`${API_FLASK_URL}/predict_price`,{
       method: "POST",
       headers: {

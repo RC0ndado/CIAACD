@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "../styles/formulario.css";
 import { respuestasModelo } from "../services/app";
+import Prediccion from "../components/Prediccion";
+
 //import "./App.css";
+
+
 
 const Formulario = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -10,6 +14,9 @@ const Formulario = () => {
   const [isFinished, setIsFinished] = useState(false);
   const [editingQuestionIndex, setEditingQuestionIndex] = useState(null);
   const [totalQuestions] = useState(40); // Actualiza el número total de preguntas
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [predictionData, setPredictionData] = useState(null);
+
   const options = {
     q18: [
       { value: "RL", label: "Zonificación Residencial Baja Densidad" },
@@ -218,6 +225,13 @@ const Formulario = () => {
   };
 
 
+  const openModal = async () => {
+    // Call respuestasModelo function and store the result in predictionData
+    const data = await respuestasModelo(answers);
+    setPredictionData(data);
+    setIsModalOpen(true);
+  }; 
+  
   const handleNextQuestion = () => {
     const currentQuestionKey = `answer${currentQuestion + 1}`;
     const currentAnswer = answers[currentQuestionKey];
@@ -412,15 +426,28 @@ const Formulario = () => {
             </li>
           ))}
         </ul>
-        <button onClick={enviarRespuestas}>Enviar Respuestas</button>
+        <button onClick={enviarRespuestas}>Enviar Respuestas </button>
+        <Prediccion
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          datos={predictionData} // Debe ser "datos" en lugar de "data"
+          />
+
       </div>
+      
     );
   };
 
-  const enviarRespuestas = () => {
-    respuestasModelo(answers)
-    console.log("Respuestas enviadas a la base de datos:", answers);
+  const enviarRespuestas = async () => {
+    try {
+      const response = await respuestasModelo(answers); // Llama a respuestasModelo y espera la respuesta
+      setPredictionData(response); // Actualiza predictionData con la respuesta
+      setIsModalOpen(true); // Abre el modal con los datos de la predicción actualizados
+    } catch (error) {
+      console.error("Error al enviar respuestas:", error);
+    }
   };
+  
 
   return (
     <div className="formulario">

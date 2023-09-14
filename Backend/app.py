@@ -1,9 +1,8 @@
-from flask import Flask, Blueprint, jsonify, request, Response
+from flask import Flask, Blueprint, jsonify, request
 from flask_pymongo import PyMongo
 from models.property import PropertySchema
 from models.user import UserSchema
 from werkzeug.security import generate_password_hash, check_password_hash
-from bson import json_util
 import os
 from dotenv import load_dotenv
 from flask_cors import CORS
