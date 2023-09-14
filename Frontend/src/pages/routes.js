@@ -5,6 +5,7 @@ import UserInfo from "../pages/userInfo";
 import Index from "../pages/properties";
 import Privacy from "../pages/privacy";
 import ListingProperty from "../pages/listingProperty";
+import Formulario from "./Formulario";
 
 const Rutas = (props) => {
 return (
@@ -15,6 +16,7 @@ return (
     <Route path="/propiedades" element={<Index />} />
     <Route path="/aviso-de-privacidad" element={<Privacy />} />
     <Route path="/propiedad/:id" element={<ListingProperty properties={props.properties} />} />
+    <Route path="/prediccion" element={<Formulario/>} />
     </Routes>
 );
 };
