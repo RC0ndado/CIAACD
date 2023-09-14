@@ -1,11 +1,14 @@
-
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "../styles/loginPage.css";
 import { createUser, loginUser } from "../services/app";
 
+
 function Login() {
   const location = useLocation();
+  const navigate = useNavigate();
   const isRegisterActiveFromURL = location.search === "?register=true";
   const [isRegisterActive, setIsRegisterActive] = useState(isRegisterActiveFromURL);
 
@@ -40,36 +43,53 @@ function Login() {
   const handleRegistrationSubmit = async (event) => {
     event.preventDefault();
   
+    // Verificar si todos los campos están llenos
+    if (!registrationData.name || !registrationData.email || !registrationData.password) {
+      toast.error('Por favor, llena todos los campos.');
+      return;
+    }
+
     try {
       const response = await createUser(registrationData);
-        console.log(response);
+      console.log(response);
+
+      if (response && response.status === 200) {
+        toast.success('Registro exitoso.');
+      }
+
       setRegistrationData({
         name: "",
         email: "",
         password: "",
       });
-    } catch (error) {
+    }
+    catch (error) {
       console.error("Error during registration:", error);
+      toast.error('Error durante el registro. Inténtalo de nuevo.');
     }
   };
   
   const handleLoginSubmit = async (event) => {
     event.preventDefault();
-
+  
     try {
       const response = await loginUser(loginData);
-
-      console.log("User login response:", response);
-
+      if (response && response.email) {
+        toast.success('Inicio de sesión exitoso.');
+        navigate("/userInfo");
+      } else {
+        toast.error('Correo electrónico o contraseña incorrectos.');
+      }
+  
       setLoginData({
         email: "",
         password: "",
       });
     } catch (error) {
       console.error("Error during login:", error);
+      toast.error('Correo electrónico o contraseña incorrectos.');
     }
   };
-
 
   const handleRegisterClick = () => {
     setIsRegisterActive(true);
