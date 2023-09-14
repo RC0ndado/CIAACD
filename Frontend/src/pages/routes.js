@@ -4,8 +4,9 @@ import Login from "../pages/login";
 import UserInfo from "../pages/userInfo";
 import Index from "../pages/properties";
 import Privacy from "../pages/privacy";
+import ListingProperty from "../pages/listingProperty";
 
-const Rutas = () => {
+const Rutas = (props) => {
 return (
     <Routes>
     <Route path="/" element={<Home />} />
@@ -13,6 +14,7 @@ return (
     <Route path="/userInfo" element={<UserInfo />} />
     <Route path="/propiedades" element={<Index />} />
     <Route path="/aviso-de-privacidad" element={<Privacy />} />
+    <Route path="/propiedad/:id" element={<ListingProperty properties={props.properties} />} />
     </Routes>
 );
 };

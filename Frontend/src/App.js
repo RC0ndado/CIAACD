@@ -1,10 +1,9 @@
 import Rutas from "./pages/routes";
+import data from "../src/data.json";
 
 function App() {
   return (
-    <>
-      <Rutas />
-    </>
+    <Rutas properties={data.property} />
   );
 }
 

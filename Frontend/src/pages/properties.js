@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Filter from '../components/propertiespage/filter';
-import Listing from './listing'
-import data from '../components/data.json';
+import Listing from './listingProperties'
+import data from '../../src/data.json';
 import '../styles/filter.css';
 import '../styles/listing.css';
+import { createContext} from 'react';
 
 function Index() {
   const [propertyData, setPropertyData] = useState(data.property);
@@ -159,7 +160,7 @@ function Index() {
     });
     setLoading(false);
   };
-
+  console.log(propertyData);
   return (
     <div className="app">
       {loading ? (
@@ -221,3 +222,4 @@ function Index() {
 }
 
 export default Index;
+export const PropertyContext = createContext();

@@ -1,0 +1,66 @@
+.listing-details {
+    display: flex;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+}
+
+.listing-details img {
+    width: 50%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.details {
+    flex: 1;
+    display: table; /* Esto hará que se comporte como una tabla */
+}
+
+.property-container {
+    display: flex;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    align-items: center;  /* Centra los elementos hijos verticalmente */
+}
+
+.property-image {
+    width: 50%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.property-details {
+    flex: 1;
+}
+
+.property-details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.property-details td {
+    padding: 8px 12px;
+    border: 1px solid #e0e0e0;
+    text-align: left; /* Alineación del texto a la izquierda */
+}
+
+.buy-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: block; /* Cambiamos a block para que ocupe toda la línea */
+    margin-top: 20px;
+    text-align: right; /* Alineamos el contenido a la derecha */
+}
+
+.buy-button:hover {
+    background-color: #0056b3;
+}
