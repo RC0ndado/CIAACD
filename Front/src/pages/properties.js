@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Filter from '../components/propertiespage/filter';
-import Listing from '../components/propertiespage/listing';
-import data from '../data.json';
-import Navbar from '../components/Navbar';
+import Listing from './listing';
+import data from '../components/data.json';
+import '../styles/filter.css';
+import '../styles/listing.css';
 
 function Index() {
   const [propertyData, setPropertyData] = useState(data.property);
@@ -32,10 +33,14 @@ function Index() {
 
   useEffect(() => {
     populateForms();
+  }, []); // Run once when component mounts
+
+  useEffect(() => {
+    filterData();
   });
 
   const handleOnChange = (event) => {
-    const { name, type, value, checked } = event.target;
+    const { name, value, checked } = event.target;
     switch (name) {
       case 'city':
         setCity(value);
@@ -79,9 +84,18 @@ function Index() {
       case 'landry':
         setLandry(checked);
         break;
+      case 'sortBy':
+        setSortBy(value);
+        break;
+      case 'search':
+        setSearch(value);
+        break;
       default:
         break;
     }
+
+    // Call filterData to apply filtering when any input field changes
+    filterData();
   };
 
   const handleOnChangeView = (changeView) => (e) => {
@@ -138,76 +152,70 @@ function Index() {
     const cities = [...new Set(data.property.map((property) => property.city))].sort();
     const types = [...new Set(data.property.map((property) => property.type))].sort();
     const beds = [...new Set(data.property.map((property) => property.beds))].sort();
-
-    console.log(cities)
-    console.log(types)
-    console.log(beds)
-
     setPopulateFormsData({
       types,
       beds,
       cities,
     });
-    console.log(populateFormsData)
     setLoading(false);
   };
 
   return (
     <div className="app">
-        {loading ? (
-      <div>Loading...</div>
-    ) : (
-      <section>
-        <Filter
-          property={data.property}
-          handleOnChange={handleOnChange}
-          global={{
-            city,
-            type,
-            beds,
-            min_price: minPrice,
-            max_price: maxPrice,
-            min_floorspace: minFloorspace,
-            max_floorspace: maxFloorspace,
-            elevator,
-            garage,
-            basement,
-            gym,
-            fireplace,
-            pool,
-            landry,
-            sortBy,
-            view,
-            search,
-          }}
-          populateAction={populateFormsData}
-        />
-        <Listing
-          property={propertyData}
-          global={{
-            city,
-            type,
-            beds,
-            min_price: minPrice,
-            max_price: maxPrice,
-            min_floorspace: minFloorspace,
-            max_floorspace: maxFloorspace,
-            elevator,
-            garage,
-            basement,
-            gym,
-            fireplace,
-            pool,
-            landry,
-            sortBy,
-            view,
-            search,
-          }}
-          handleOnChange={handleOnChange}
-          handleOnChangeView={handleOnChangeView}
-        />
-      </section>
-    )}
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <section className="container">
+          <Filter
+            property={data.property}
+            handleOnChange={handleOnChange}
+            global={{
+              city,
+              type,
+              beds,
+              min_price: minPrice,
+              max_price: maxPrice,
+              min_floorspace: minFloorspace,
+              max_floorspace: maxFloorspace,
+              elevator,
+              garage,
+              basement,
+              gym,
+              fireplace,
+              pool,
+              landry,
+              sortBy,
+              view,
+              search,
+            }}
+            populateAction={populateFormsData}
+          />
+          <Listing
+            property={propertyData}
+            global={{
+              city,
+              type,
+              beds,
+              min_price: minPrice,
+              max_price: maxPrice,
+              min_floorspace: minFloorspace,
+              max_floorspace: maxFloorspace,
+              elevator,
+              garage,
+              basement,
+              gym,
+              fireplace,
+              pool,
+              landry,
+              sortBy,
+              view,
+              search,
+            }}
+            handleOnChange={handleOnChange}
+            handleOnChangeView={handleOnChangeView}
+          />
+        </section>
+      )}
     </div>
   );
 }

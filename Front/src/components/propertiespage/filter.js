@@ -1,14 +1,10 @@
-import React, { useEffect } from 'react';
-import '../../styles/filter.css'
+import React from 'react';
+import '../../styles/filter.css';
 
 function Filter(props) {
-  useEffect(() => {
-    // props.populateAction();
-  }, []);
-
   const cities = () => {
     const citiesData = props.global.populateFormsData || {};
-  const { cities } = citiesData;
+    const { cities } = citiesData;
     if (cities !== undefined) {
       return cities.map((city) => (
         <option key={city} value={city}>
@@ -21,7 +17,7 @@ function Filter(props) {
 
   const types = () => {
     const typesData = props.global.populateFormsData || {};
-  const { types } = typesData;
+    const { types } = typesData;
     if (types !== undefined) {
       return types.map((type) => (
         <option key={type} value={type}>
@@ -34,7 +30,7 @@ function Filter(props) {
 
   const beds = () => {
     const bedsData = props.global.populateFormsData || {};
-  const { beds } = bedsData;
+    const { beds } = bedsData;
     if (beds !== undefined) {
       return beds.map((bed) => (
         <option key={bed} value={bed}>
@@ -167,3 +163,4 @@ function Filter(props) {
 }
 
 export default Filter;
+

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/listing.css';
 
 function Listing(props) {
   const { global, property, handleOnChange, handleOnChangeView } = props;
@@ -10,13 +11,12 @@ function Listing(props) {
 
     return property.map((listing) => {
       const isResponsiveView = global.view === 'resp';
-
       return (
         <div className={isResponsiveView ? 'col-lg-6' : 'col-md-3'} key={listing.id}>
           <div className="listing">
             <div className="listing-img">
               <span className="address">{listing.address}</span>
-              <img alt={listing.type} src={`/public/img/property/${listing.image}`} />
+              <img alt={listing.type} src={`/img/${listing.image}`} />
               <div className="details">
                 <div className="col-md-3">
                   <div className="user-img" />
@@ -61,7 +61,7 @@ function Listing(props) {
       <section className="listing-sort">
         <span className="results">{(global.filterData ? global.filterData.length : 0)} results found</span>
         <div className="listing-sortOptions">
-          <select name="sortBy" className="sortBy" onChange={handleOnChange}>
+          <select name="sortBy" className="sortby" onChange={handleOnChange}>
             <option value="price-dsc">Lowest Price</option>
             <option value="price-asc">Highest Price</option>
           </select>
