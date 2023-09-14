@@ -109,26 +109,27 @@ export const list = [
 ]
 export const awards = [
   {
-    icon: <i className='fa-solid fa-trophy'></i>,
+    icon: <img src="/img/trophy.png" alt="Trophy" />,
     num: "32 M",
     name: "Blue Burmin Award",
   },
   {
-    icon: <i className='fa-solid fa-briefcase'></i>,
+    icon: <img src="/img/trophy.png" alt="Trophy" />,
     num: "43 M",
     name: "Mimo X11 Award",
   },
   {
-    icon: <i className='fa-solid fa-lightbulb'></i>,
+    icon: <img src="/img/trophy.png" alt="Trophy" />,
     num: "51 M",
     name: "Australian UGC Award",
   },
   {
-    icon: <i className='fa-solid fa-heart'></i>,
+    icon: <img src="/img/trophy.png" alt="Trophy" />,
     num: "42 M",
     name: "IITCA Green Award",
   },
 ]
+
 export const location = [
   {
     id: 1,

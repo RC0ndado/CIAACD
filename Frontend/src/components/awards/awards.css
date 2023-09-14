@@ -16,6 +16,10 @@
   font-weight: 400;
 }
 .awards .icon {
+  background-image: url('https://clipart-library.com/images_k/trophy-png-transparent/trophy-png-transparent-3.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 100px;
   height: 100px;
   line-height: 100px;

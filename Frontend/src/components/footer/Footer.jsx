@@ -12,7 +12,7 @@ const Footer = () => {
               <h1>¿Tienes preguntas acerca de Minka?</h1>
               <p>Te ayudaremos a impulsar tus propiedades y su venta. </p>
             </div>
-            <button className='btn5'>Contáctanos</button>
+            <a href="mailto:minka@support.ai" className='btn5'>Contáctanos</a>
           </div>
         </div>
       </section>
