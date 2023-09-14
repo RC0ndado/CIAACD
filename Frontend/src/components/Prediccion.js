@@ -1,5 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
+import "../styles/prediccion.css";
 
 const Prediccion = ({ isOpen, onClose, datos }) => {
     const obtenerPrediccion = () => {
@@ -15,10 +16,10 @@ const Prediccion = ({ isOpen, onClose, datos }) => {
       <Modal isOpen={isOpen} onRequestClose={onClose} contentLabel="Modal de Respuestas">
         <h2>Predicción del precio</h2>
         <div>
-          <pre>$ {obtenerPrediccion()}</pre>
+          <pre className="precio-display">$ {obtenerPrediccion()}</pre>
         </div>
         <br/>
-        <button onClick={onClose}>Cerrar</button>
+        <button className="cerrar-btn" onClick={onClose}>Cerrar</button>
       </Modal>
     );
   };

@@ -1,0 +1,26 @@
+/* Styles for the specific close button in the prediction modal */
+.cerrar-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cerrar-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Styles for the specific price display in the prediction modal */
+.precio-display {
+    font-size: 28px;
+    font-weight: bold;
+    background-color: #f7f7f7;
+    padding: 15px 25px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

@@ -8,15 +8,15 @@ function AccountSettings() {
       gap={6}
     >
       <FormControl id="firstName">
-        <FormLabel>First Name</FormLabel>
+        <FormLabel>Nombre</FormLabel>
         <Input focusBorderColor="brand.blue" type="text" placeholder="Tim" />
       </FormControl>
       <FormControl id="lastName">
-        <FormLabel>Last Name</FormLabel>
+        <FormLabel>Apellido</FormLabel>
         <Input focusBorderColor="brand.blue" type="text" placeholder="Cook" />
       </FormControl>
       <FormControl id="phoneNumber">
-        <FormLabel>Phone Number</FormLabel>
+        <FormLabel>Teléfono</FormLabel>
         <Input
           focusBorderColor="brand.blue"
           type="tel"
@@ -30,30 +30,6 @@ function AccountSettings() {
           type="email"
           placeholder="tcook@apple.com"
         />
-      </FormControl>
-      <FormControl id="city">
-        <FormLabel>City</FormLabel>
-        <Select focusBorderColor="brand.blue" placeholder="Select city">
-          <option value="california">California</option>
-          <option value="washington">Washington</option>
-          <option value="toronto">Toronto</option>
-          <option value="newyork" defaultValue> {/* Usa defaultValue */}
-            New York
-          </option>
-          <option value="london">London</option>
-          <option value="netherland">Netherland</option>
-          <option value="poland">Poland</option>
-        </Select>
-      </FormControl>
-      <FormControl id="country">
-        <FormLabel>Country</FormLabel>
-        <Select focusBorderColor="brand.blue" placeholder="Select country">
-          <option value="america" defaultValue> {/* Usa defaultValue */}
-            America
-          </option>
-          <option value="england">England</option>
-          <option value="poland">Poland</option>
-        </Select>
       </FormControl>
     </Grid>
   );
