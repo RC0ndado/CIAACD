@@ -59,7 +59,7 @@ export async function createUser(user) {
           "GarageCond": answers.answer38,
           "PoolQC": answers.answer39,
           "SaleCondition": answers.answer40,
-          "OverallQual": answers.answer, // Falta esta
+          "OverallQual": answers.answer1,
           "YearBuilt": answers.answer2,
           "YearRemodAdd": answers.answer3,
           "MasVnrArea": answers.answer4,
