@@ -344,7 +344,7 @@ const Formulario = () => {
               )}
             </div>
             <button onClick={handleNextQuestion}>
-              {currentQuestion < totalQuestions - 1 ? "Next" : "Submit"}
+              {currentQuestion < totalQuestions - 1 ? "Siguiente" : "Enviar"}
             </button>
           </div>
         </CSSTransition>
