@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "../styles/formulario.css";
 import { respuestasModelo } from "../services/app";
-//import "./App.css";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Formulario = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -229,7 +230,7 @@ const Formulario = () => {
         setIsFinished(true);
       }
     } else {
-      alert("Por favor, responde la pregunta antes de continuar.");
+    toast.error("Por favor, responde la pregunta antes de continuar.");
     }
   };
 
@@ -242,7 +243,7 @@ const Formulario = () => {
     const isNumericQuestion = !options[`q${currentQuestion + 1}`];
     
     if (isNumericQuestion && isNaN(value)) {
-      alert("Esta pregunta debe ser respondida con un valor numérico.");
+      toast.error("Esta pregunta debe ser respondida con un valor numérico.");
     }
   }
 
@@ -331,7 +332,7 @@ const Formulario = () => {
               )}
             </div>
             <button onClick={handleNextQuestion}>
-              {currentQuestion < totalQuestions - 1 ? "Next" : "Submit"}
+              {currentQuestion < totalQuestions - 1 ? "Siguiente" : "Enviar"}
             </button>
           </div>
         </CSSTransition>

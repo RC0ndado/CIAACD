@@ -12,8 +12,11 @@ const Navbar = () => {
     navigate("/propiedades");
   };
 
-  const handlePrivacyClick = () => {
-    navigate("/aviso-de-privacidad");
+  const handleVentaClick = () => {
+  navigate("/prediccion");
+};
+
+const handlePrivacyClick = () => {    navigate("/aviso-de-privacidad");
   };
 
   const buttons = [
@@ -60,7 +63,7 @@ const Navbar = () => {
               <NavBtn
                 key={index}
                 title={button.title}
-                onClick={button.onClick || (["Compra", "Venta", "Renta", "Propiedades más vistas"].includes(button.title) ? handleCompraClick : null)}
+                onClick={button.onClick || (button.title === "Compra" || button.title === "Renta" || button.title === "Propiedades más vistas" ? handleCompraClick : button.title === "Venta" ? handleVentaClick : null)}
                 border={button.border}
                 underline={button.underline}
               />

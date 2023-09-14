@@ -134,6 +134,10 @@
   }
   
 .questions input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   
       width: 100%; /* O un porcentaje adecuado */
       max-width: 300px; /* Ancho máximo */
@@ -144,6 +148,7 @@
   
 /* En tu hoja de estilos CSS */
 .options {
+  gap: 15px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -176,6 +181,7 @@
   }
   
   .option-label {
+  justify-content: center;
     display: flex;
     align-items: center;
     background-color: #f0f0f0;
@@ -192,6 +198,10 @@
   
   /* Estilos para el botón de enviar respuestas */
   .submit-button {
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
     background-color: #007bff;
     color: white;
     border: none;
@@ -207,3 +217,43 @@
     flex-direction: column;
     align-items: center;
   }
+.submit-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.questions {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.questions {
+    min-height: 100vh; /* This will ensure that the .questions div takes up the full viewport height */
+    justify-content: center; /* Center the content vertically */
+}
+
+.questions input {
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.questions input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ensure option labels also have consistent styling */
+.option-label {
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
