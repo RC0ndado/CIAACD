@@ -44,15 +44,15 @@ function Filter(props) {
   return (
     <div className="filters">
       <div className="inside">
-        <h4 className="filter-title">Filter</h4>
-        <label htmlFor="city">City</label>
+        <h4 className="filter-title">Filtros</h4>
+        <label htmlFor="city">Ciudad</label>
         <select name="city" className="filters city" onChange={props.handleOnChange}>
-          <option value="all">All</option>
+          <option value="all">Todos</option>
           {cities()}
         </select>
-        <label htmlFor="type">Home Type</label>
+        <label htmlFor="type">Tipo de Casa</label>
         <select name="type" className="filters type" onChange={props.handleOnChange}>
-          <option value="all">All</option>
+          <option value="all">Todo</option>
           {types()}
         </select>
         <label htmlFor="beds">Beds</label>
@@ -61,7 +61,7 @@ function Filter(props) {
         </select>
         <form>
           <div className="m-price">
-            <label htmlFor="price">Price</label>
+            <label htmlFor="price">Precio</label>
             <input
               name="min_price"
               value={props.global.min_price}
@@ -76,7 +76,7 @@ function Filter(props) {
             />
           </div>
           <div className="m-floorspace">
-            <label htmlFor="floorspace">Floor Space</label>
+            <label htmlFor="floorspace">Metros cuadrados</label>
             <input
               name="min_floorspace"
               value={props.global.min_floorspace}
@@ -92,9 +92,9 @@ function Filter(props) {
           </div>
         </form>
         <div className="filters extras">
-          <h4>Facilities</h4>
+          <h4>Facilidades</h4>
           <label htmlFor="elevator">
-            <span>Elevator</span>
+            <span>Elevador</span>
             <input
               name="elevator"
               value="elevator"
@@ -112,7 +112,7 @@ function Filter(props) {
             />
           </label>
           <label htmlFor="basement">
-            <span>Basement</span>
+            <span>Sótano</span>
             <input
               name="basement"
               value="basement"
@@ -121,7 +121,7 @@ function Filter(props) {
             />
           </label>
           <label htmlFor="landry">
-            <span>Landry</span>
+            <span>Landería</span>
             <input
               name="landry"
               value="landry"
@@ -139,7 +139,7 @@ function Filter(props) {
             />
           </label>
           <label htmlFor="fireplace">
-            <span>Fireplace</span>
+            <span>Extintor</span>
             <input
               name="fireplace"
               value="fireplace"
@@ -148,7 +148,7 @@ function Filter(props) {
             />
           </label>
           <label htmlFor="pool">
-            <span>Swimming pool</span>
+            <span>Alberca</span>
             <input
               name="pool"
               value="pool"

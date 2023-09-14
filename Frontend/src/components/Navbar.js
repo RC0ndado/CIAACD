@@ -8,6 +8,14 @@ import { useNavigate } from "react-router-dom"; // Importa useNavigate desde rea
 const Navbar = () => {
   const navigate = useNavigate(); // Obtiene la función de navegación
 
+  const handleCompraClick = () => {
+    navigate("/propiedades");
+  };
+
+  const handlePrivacyClick = () => {
+    navigate("/aviso-de-privacidad");
+  };
+
   const buttons = [
     { title: "Compra", underline: "-bottom-[1.3rem]" },
     { title: "Venta", underline: "-bottom-[1.3rem]" },
@@ -17,18 +25,17 @@ const Navbar = () => {
     {
       title: "Aviso de privacidad",
       border: "border p-1 rounded-[0.3rem] border-gray-400",
+      onClick: handlePrivacyClick
     },
   ];
 
   // Función para manejar el clic en el botón "Iniciar sesión"
   const handleLoginClick = () => {
-    // Utiliza navigate para redireccionar a la ruta de login
     navigate("/login");
   };
 
   // Función para manejar el clic en el botón "Registrarse"
   const handleRegisterClick = () => {
-    // Utiliza navigate para redireccionar a la ruta de login con el formulario de registro activado
     navigate("/login?register=true");
   };
 
@@ -53,6 +60,7 @@ const Navbar = () => {
               <NavBtn
                 key={index}
                 title={button.title}
+                onClick={button.onClick || (["Compra", "Venta", "Renta", "Propiedades más vistas"].includes(button.title) ? handleCompraClick : null)}
                 border={button.border}
                 underline={button.underline}
               />

@@ -53,17 +53,17 @@ function Listing(props) {
   return (
     <div className="listings">
       <section className="listing-heading">
-        <h2>Short stay</h2>
-        <input type="text" name="search" placeholder="search..." onChange={handleOnChange} />
+        <h2>Propiedades</h2>
+        <input type="text" name="search" placeholder="Buscar..." onChange={handleOnChange} />
         <hr />
       </section>
 
       <section className="listing-sort">
-        <span className="results">{(global.filterData ? global.filterData.length : 0)} results found</span>
+        <span className="results">{(global.filterData ? global.filterData.length : 0)} resultados encontrados</span>
         <div className="listing-sortOptions">
           <select name="sortBy" className="sortby" onChange={handleOnChange}>
-            <option value="price-dsc">Lowest Price</option>
-            <option value="price-asc">Highest Price</option>
+            <option value="price-dsc">Menor Precio</option>
+            <option value="price-asc">Mayor Precio</option>
           </select>
           <div className="view">
             <i className="fa fa-th-list" aria-hidden="true" onClick={() => handleOnChangeView('resp')} />
@@ -76,13 +76,13 @@ function Listing(props) {
 
       <section id="listing-pagination">
         <ul className="pagination-pages">
-          <li className="prev">Prev</li>
+          <li className="prev">Anterior</li>
           <li className="active">1</li>
           <li>2</li>
           <li>3</li>
           <li>4</li>
           <li>...</li>
-          <li className="next">Next</li>
+          <li className="next">Siguiente</li>
         </ul>
       </section>
     </div>
