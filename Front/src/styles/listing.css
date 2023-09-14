@@ -1,0 +1,323 @@
+.listings {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin-left: 20px;
+}
+
+.listing {
+  flex: 0 0 calc(33.33% - 30px);
+  margin-right: 30px;
+  margin-bottom: 20px;
+  background: #fff;
+  position: relative;
+  box-shadow: 0px 9px 54px -4px rgba(224, 224, 224, 1);
+}
+
+.listing-img {
+  position: relative; /* Asegura que el contenedor de la imagen tiene una posición relativa */
+}
+
+.listing .address {
+  background-color: rgba(0, 0, 0, 0.75); /* Fondo negro con 75% de opacidad */
+  color: #fff; /* Texto blanco */
+  padding: 5px 10px; /* Relleno para separación */
+  border-radius: 5px; /* Bordes redondeados */
+  position: absolute; /* Posicionado encima de la imagen */
+  bottom: 10px; /* 10px desde el fondo del contenedor de la imagen */
+  left: 10px; /* 10px desde la izquierda del contenedor de la imagen */
+  max-width: 90%; /* Asegura que no desborde la tarjeta */
+  overflow: hidden; /* Oculta el texto que desborde */
+  text-overflow: ellipsis; /* Muestra '...' para texto que desborde */
+  white-space: nowrap; /* Evita que el texto pase a la siguiente línea */
+  z-index: 10; /* Asegura que esté por encima de otros contenidos */
+  font-weight: bold; /* Texto en negrita para mejor visibilidad */
+}
+
+
+.listing .address::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: -1;
+}
+
+.listing .address h3 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #fff;
+}
+
+.listing .details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.listing-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.listing-heading h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: gray;
+  margin: 0;
+}
+
+.listing-heading input[type="text"] {
+  color: gray;
+  font-size: 1.2rem;
+  float: right;
+  margin-top: 30px;
+  padding-right: 70px;
+  text-decoration: none;
+  border: 0;
+  border-bottom: 1px solid lightgray;
+  outline: none;
+}
+
+.results {
+  color: darkgray;
+  font-weight: 100;
+}
+
+.listing-sort {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.listing-sort .results {
+  font-size: 1rem;
+  color: darkgray;
+}
+
+.listing-sortOptions {
+  display: flex;
+  align-items: center;
+}
+
+.sortby {
+  width: 175px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.view {
+  display: flex;
+}
+
+.view i {
+  font-size: 24px;
+  margin-right: 10px;
+  cursor: pointer;
+  color: gray;
+}
+
+.listing-results {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.listing {
+  flex: 0 0 calc(33.33% - 20px);
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background: #fff;
+  position: relative;
+  box-shadow: 0px 9px 54px -4px rgba(224, 224, 224, 1);
+}
+
+.listing-img {
+  position: relative;
+  height: 200px; /* O el alto que desees para las imágenes */
+  overflow: hidden; /* Para asegurar que imágenes más grandes que el contenedor no desborden */
+}
+
+.listing-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.listing-img .address {
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: absolute;
+  padding: 0 0.75em;
+  text-shadow: -1px 1px 6px rgba(134, 146, 134, 1);
+  bottom: 0; /* Coloca el cuadro de texto en la parte inferior */
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo del cuadro de texto */
+}
+
+.listing-img:hover .details {
+  opacity: 1;
+}
+
+.listing-img:hover .address {
+  opacity: 0;
+}
+
+.details {
+  height: 200px;
+  opacity: 0;
+  transition: all 0.6s ease-in-out;
+  padding: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(87, 52, 170, 0.8);
+  background: linear-gradient(
+    135deg,
+    rgba(87, 52, 170, 0.8) 1%,
+    rgba(189, 128, 242, 0.8) 100%
+  );
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.user-img {
+  background: url(https://i.ytimg.com/vi/J4rBDsimsmQ/maxresdefault.jpg) no-repeat center center;
+  background-size: cover;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.user-details {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+}
+
+.user-name {
+  font-weight: 300;
+  font-size: 0.9rem;
+  display: block;
+  color: rgba(255, 255, 255, 1);
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+
+.post-date {
+  font-size: 0.9rem;
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.listing-details {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.listing-details .fa {
+  font-size: 20px;
+  margin-right: 15px;
+  padding-left: 0;
+  color: gray;
+}
+
+.listing-details span {
+  font-size: 0.8rem;
+  font-weight: 300;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  top: 2px;
+}
+
+.bedrooms .fa {
+  display: inline-block;
+}
+
+.listing-rent {
+  padding: 20px 15px;
+}
+
+.price {
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 10px;
+  color: darkgray;
+}
+
+.location {
+  font-size: 1.2rem;
+  display: block;
+  color: lightgray;
+}
+
+#listing-pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination-pages {
+  padding: 0;
+  list-style-type: none;
+  display: inline-block;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0px 9px 54px -4px rgba(224, 224, 224, 1);
+}
+
+.pagination-pages li {
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+  color: darkgray;
+  font-size: 1rem;
+}
+
+.pagination-pages li.active {
+  background: pink;
+  border-radius: 50%;
+  padding: 10px;
+  height: 36px;
+  width: 36px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.pagination-pages li.prev,
+.pagination-pages li.next {
+  color: blue;
+}
+
+.pagination-pages li.prev {
+  opacity: 0.4;
+}
+
+#listing-pagination {
+  width: fit-content;  /* Hace que el ancho del elemento se ajuste a su contenido */
+  margin: 0 auto;      /* Centra el elemento horizontalmente */
+}
