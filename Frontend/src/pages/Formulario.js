@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "../styles/formulario.css";
 import { respuestasModelo } from "../services/app";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Prediccion from "../components/Prediccion";
-
-//import "./App.css";
-
 
 
 const Formulario = () => {
@@ -243,7 +242,7 @@ const Formulario = () => {
         setIsFinished(true);
       }
     } else {
-      alert("Por favor, responde la pregunta antes de continuar.");
+      toast.error("Por favor, responde la pregunta antes de continuar.");
     }
   };
 
@@ -256,7 +255,7 @@ const Formulario = () => {
     const isNumericQuestion = !options[`q${currentQuestion + 1}`];
     
     if (isNumericQuestion && isNaN(value)) {
-      alert("Esta pregunta debe ser respondida con un valor numérico.");
+      toast.error("Esta pregunta debe ser respondida con un valor numérico.");
     }
   }
 
