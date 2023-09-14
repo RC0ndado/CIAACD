@@ -321,3 +321,44 @@
   width: fit-content;  /* Hace que el ancho del elemento se ajuste a su contenido */
   margin: 0 auto;      /* Centra el elemento horizontalmente */
 }
+
+.card {
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  transition: transform 0.2s; /* animación suave al hacer hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* sombra suave */
+}
+
+.card:hover {
+  transform: scale(1.02); /* un leve crecimiento al hacer hover */
+}
+
+.card img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  margin-bottom: 10px;
+}
+
+.short-stay, .lower-price {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.short-stay input, .lower-price input {
+  margin-right: 10px;
+}

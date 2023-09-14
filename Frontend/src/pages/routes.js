@@ -10,7 +10,7 @@ return (
     <Route path="/" element={<Home />} />
     <Route path="/login" element={<Login />} />
     <Route path="/userInfo" element={<UserInfo />} />
-    <Route path="/properties" element={<Index />} />
+    <Route path="/propiedades" element={<Index />} />
     </Routes>
 );
 };
